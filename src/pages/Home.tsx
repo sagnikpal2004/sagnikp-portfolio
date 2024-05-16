@@ -27,7 +27,9 @@ function getScreenWidth() {
 const styles: Record<string, React.CSSProperties> = {
   container: {
     background: `url(${HomeBackground})`,
-    minHeight: '100vh',
+    backgroundAttachment: 'fixed',
+    minHeight: '600px',
+    height: '100vh',
     maxHeight: '100vh',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -72,8 +74,9 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: "'Roboto Mono', monospace",
     fontSize: '2em',
     position: 'absolute',
-    top: '5.4em',
+    top: 'calc(50% - 4em)',
     color: '#eff5f2',
+    transform: 'translateY(-50%)',
   },
   headline: {
     fontFamily: "'Roboto Mono', monospace",
@@ -92,41 +95,46 @@ const styles: Record<string, React.CSSProperties> = {
 
 
 function Home() {  
-  return <Container fluid style={styles.container}>
-    <Row style={styles.greeting}>
-      Hey there! This is...
-    </Row>
-    <Row style={styles.titleContainer}>
-      <p style={styles.title}>Sagnik Pal</p>
-      <p style={styles.titleShadow}>Sagnik Pal</p>
-    </Row>
-    <Row style={styles.headline}>
-      <span style={{ transform: 'translateX(-38%)', color: 'white', opacity: 0.2}}>type myself = <br /></span>
-      <span style={{ fontSize: '1.5em', transform: 'translateX(4%)' }}>
-        <span style={{ color: 'white', opacity: 0.2 }}>'</span>
-        <span style={{ color: '#dd99ff' }}>Developer</span>
-        <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
-        <span style={{ color: '#dd99ff' }}>Engineer</span>
-        <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
-        <span style={{ color: '#dd99ff' }}>Problem Solver</span>
-        <span style={{ color: 'white', opacity: 0.2 }}>'</span>
-      </span>
-    </Row>
-    <LinkBar 
-      profLinks={["LinkedIn", "GitHub", "Email", "Resume"]} 
-      profLinksURL={[
-        "https://www.linkedin.com/in/sagnikpal2004",
-        "https://www.github.com/sagnikpal2004",
-        "mailto:sagnikpal@umass.edu",
-        "../assets/resume.pdf"
-      ]}
-    />
-    {/* <Row style={{ position: 'absolute', bottom: '1em', color: '#33ffff', fontFamily: "'Maven Pro', sans-serif", transform: 'translateX(-0.9em)' }}>
-      <Col style={{ opacity: 0.7 }}>About</Col>
-      <Col><FaAnglesDown/></Col>
-      <Col style={{ opacity: 0.7 }}>Me</Col>
-    </Row> */}
-  </Container>
+  return <>
+    <Container fluid style={styles.container}>
+      <Row style={styles.greeting}>
+        Hey there! This is...
+      </Row>
+      <Row style={styles.titleContainer}>
+        <p style={styles.title}>Sagnik Pal</p>
+        <p style={styles.titleShadow}>Sagnik Pal</p>
+      </Row>
+      <Row style={styles.headline}>
+        <span style={{ transform: 'translateX(-38%)', color: 'white', opacity: 0.2}}>type myself = <br /></span>
+        <span style={{ fontSize: '1.5em', transform: 'translateX(4%)' }}>
+          <span style={{ color: 'white', opacity: 0.2 }}>'</span>
+          <span style={{ color: '#dd99ff' }}>Developer</span>
+          <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
+          <span style={{ color: '#dd99ff' }}>Engineer</span>
+          <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
+          <span style={{ color: '#dd99ff' }}>Problem Solver</span>
+          <span style={{ color: 'white', opacity: 0.2 }}>'</span>
+        </span>
+      </Row>
+      <LinkBar 
+        profLinks={["LinkedIn", "GitHub", "Email", "Resume"]} 
+        profLinksURL={[
+          "https://www.linkedin.com/in/sagnikpal2004",
+          "https://www.github.com/sagnikpal2004",
+          "mailto:sagnikpal@umass.edu",
+          "../assets/resume.pdf"
+        ]}
+      />
+      <Row style={{ position: 'absolute', bottom: '1em', color: '#33ffff', fontFamily: "'Maven Pro', sans-serif", transform: 'translateX(-0.9em)' }}>
+        <Col style={{ opacity: 0.7 }}>About</Col>
+        <Col><FaAnglesDown/></Col>
+        <Col style={{ opacity: 0.7 }}>Me</Col>
+      </Row>
+    </Container>
+    <Container>
+      Hi How are you
+    </Container>
+  </>
 }
 
 export default Home;

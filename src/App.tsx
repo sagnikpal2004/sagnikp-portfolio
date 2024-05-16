@@ -28,7 +28,7 @@ function App() {
   const PageComponent = renderSwitch(currentTab);
   return <> 
     <NavigationBar 
-      title="sagni.kp" 
+      title="< sagni.kp />" 
       menus={menus}
       tabState={{ currentTab, setCurrentTab }}
     />
