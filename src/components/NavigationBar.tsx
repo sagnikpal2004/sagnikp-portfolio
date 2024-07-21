@@ -37,8 +37,8 @@ function NavigationBar({ title, tabState }: NavigationBarProps) {
       top: 0,
       width: '100%',
       zIndex: 1000,
-      backgroundColor: 'rgba(0, 0, 0, 0.2)',
-      backdropFilter: 'blur(20px)',
+      backgroundColor: 'transparent',
+      // backdropFilter: 'blur(20px)',
       position: 'sticky',
       // height: '4em',
     }}
@@ -64,7 +64,8 @@ function NavigationBar({ title, tabState }: NavigationBarProps) {
       <Navbar.Collapse id="basic-navbar-nav" 
         style={{
           // boxShadow: '0 0 0.5em rgba(213, 128, 255, 0.3)', 
-          backgroundColor: 'rgba(51, 0, 77, 0.1)', 
+          backgroundColor: 'rgba(51, 0, 77, 0.2)', 
+          backdropFilter: 'blur(10px)',
           borderRadius: '2em', 
           justifyContent: 'center'
         }}>

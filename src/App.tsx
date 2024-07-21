@@ -20,8 +20,8 @@ function App() {
     <Suspense fallback={<Loader />}><Home/></Suspense>
     <NavigationBar title="" tabState={{currentTab, setCurrentTab}}/>
     <Suspense fallback={<Loader />}><About/></Suspense>
-    <Suspense fallback={<Loader />}><Projects/></Suspense>
     <Suspense fallback={<Loader />}><Experience/></Suspense>
+    <Suspense fallback={<Loader />}><Projects/></Suspense>
     <Suspense fallback={<Loader />}><Contact/></Suspense>
   </div>
 }
