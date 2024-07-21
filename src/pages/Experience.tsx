@@ -11,9 +11,8 @@ import {
 import {
   CICSLogo,
   HomeBackground,
-  PanethnicPourovers,
   UMassLogo,
-} from '../assets';
+} from '../utils/assets';
 import { 
   Accordion,
   Row,
@@ -153,40 +152,6 @@ function Experience() {
             </Col>
             <Col xs={1} style={{ justifyContent: 'center' }}>
               <img src={UMassLogo} width={100}/>
-            </Col>
-          </Row>
-        </Accordion.Body>
-      </Accordion.Item>
-
-      <Accordion.Item eventKey="1" style={styles.accItem}>
-        <AccHeader eventKey="1">
-          <Col xs={7} style={{ fontFamily: "'Roboto Mono', monospace", fontWeight: 'bold' }}>Software Engineering Co-op @ Panethnic Pourovers</Col>
-          <Col style={{ textAlign: 'right', fontFamily: "'Raleway', sans-serif", fontSize: '0.9em' }}>
-            <span style={{ paddingRight: '1em' }}>Sep 2023 - present</span>
-            <AccButton eventKey="1"/>
-          </Col>
-        </AccHeader>
-        <Accordion.Body style={styles.accBody}>
-          <Row style={{ fontSize: '0.85em'}}>
-            <Col xs={2} style={{ justifyContent: 'center', }}>
-              <FaLocationDot style={{ color: '#bb77ff', transform: 'translateY(-10%)' }} />
-              <span style={{ paddingLeft: '0.5em', fontFamily: '"Roboto mono", monospace', color: 'rgba(255,255,255,0.8)' }}>Remote</span>
-            </Col>
-            <Col xs={10} style={{ justifyContent: 'center' }}>
-              <a href="https://panethnicpourovers.org/tech-academy-program/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                <FaLink style={{ color: '#bb77ff' }} />
-                <span style={{ paddingLeft: '0.5em', fontFamily: '"Roboto mono", monospace', color: 'rgba(255,255,255,0.8)' }}>panethnicpourovers.org</span>
-              </a>
-            </Col>
-          </Row>
-          <Row style={{ paddingTop: '0.5em', fontFamily: '"Maven Pro", monospace' }}>
-            <Col xs={10}  style={{ justifyContent: 'center' }}>
-              • Gained valuable real-world software engineering experience collaborating with cross-functional teams of
-              project managers, designers, and engineers<br/>
-              • Developed modern web applications using React.js and Next.js, Apollo and GraphQL
-            </Col>
-            <Col xs={1} style={{ justifyContent: 'center' }}>
-              <img src={PanethnicPourovers} width={100} style={{ filter: 'invert(100%)' }}/>
             </Col>
           </Row>
         </Accordion.Body>

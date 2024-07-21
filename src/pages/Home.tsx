@@ -5,12 +5,7 @@ import {
   Col
 } from 'react-bootstrap';
 import LinkBar from '../components/LinkBar';
-import {
-  HomeBackground
-} from '../assets';
-import {
-  FaAnglesDown,
-} from 'react-icons/fa6'
+import NavigationBar from '../components/NavigationBar';
 
 function getTextWidth(text: string, fontSize: number, fontFamily: string): number {
   const canvas = document.createElement("canvas");
@@ -24,35 +19,50 @@ function getScreenWidth() {
   return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 }
 
-const styles: Record<string, React.CSSProperties> = {
-  container: {
-    background: `url(${HomeBackground})`,
+interface Styles {
+  [key: string]: React.CSSProperties | Styles;
+}
+
+const intro: Styles = {
+  container0: {
+    // background: `url(${HomeBackground})`,
+    background: "rgba(5, 10, 15, 1)",
     backgroundAttachment: 'fixed',
-    minHeight: '600px',
-    height: '100vh',
-    maxHeight: '100vh',
+    minHeight: '400px',
+    height: '90vh',
+    // maxHeight: '100vh',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  container1: {
+    flex: 1,
+    minHeight: '400px',
     padding: '4em 0em',
     textAlign: 'center',
     display: 'flex',              
     flexDirection: 'column',      
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden',
+    position: 'relative',
   },
   title: {
     fontFamily: "'Maven Pro', sans-serif",
-    fontSize: '10em',
+    fontSize: '7em',
     color: 'white',
-    textShadow: '10px 10px 30px rgba(10, 255, 128, 1)',
+    textShadow: '5px 5px 30px rgba(209, 228, 235, 0.4)',
     zIndex: 1,
     position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   },
   titleShadow: {
     fontFamily: "'Maven Pro', sans-serif",
     fontSize: '22em',
-    color: 'rgba(153, 255, 204, 0.2)',
+    color: 'rgba(235, 226, 208, 0.2)',
     filter: 'blur(20px)',
     position: 'absolute',
     whiteSpace: 'nowrap',
@@ -74,7 +84,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontFamily: "'Roboto Mono', monospace",
     fontSize: '2em',
     position: 'absolute',
-    top: 'calc(50% - 4em)',
+    top: 'calc(50% - 3.5em)',
     color: '#eff5f2',
     transform: 'translateY(-50%)',
   },
@@ -83,56 +93,51 @@ const styles: Record<string, React.CSSProperties> = {
     position: 'absolute',
     top: '60%',
   },
-  icon: {
-    color: 'white !important',
-    fontSize: '2em',
-    margin: '0.5em',
-    cursor: 'pointer',
+  linkBar: {
     position: 'absolute',
-    bottom: '2em',
+    width: '50%',
+    top: '75%',
   }
 }
 
 
 function Home() {  
   return <>
-    <Container fluid style={styles.container}>
-      <Row style={styles.greeting}>
-        Hey there! This is...
-      </Row>
-      <Row style={styles.titleContainer}>
-        <p style={styles.title}>Sagnik Pal</p>
-        <p style={styles.titleShadow}>Sagnik Pal</p>
-      </Row>
-      <Row style={styles.headline}>
-        <span style={{ transform: 'translateX(-38%)', color: 'white', opacity: 0.2}}>type myself = <br /></span>
-        <span style={{ fontSize: '1.5em', transform: 'translateX(4%)' }}>
-          <span style={{ color: 'white', opacity: 0.2 }}>'</span>
-          <span style={{ color: '#dd99ff' }}>Developer</span>
-          <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
-          <span style={{ color: '#dd99ff' }}>Engineer</span>
-          <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
-          <span style={{ color: '#dd99ff' }}>Problem Solver</span>
-          <span style={{ color: 'white', opacity: 0.2 }}>'</span>
-        </span>
-      </Row>
-      <LinkBar 
-        profLinks={["LinkedIn", "GitHub", "Email", "Resume"]} 
-        profLinksURL={[
-          "https://www.linkedin.com/in/sagnikpal2004",
-          "https://www.github.com/sagnikpal2004",
-          "mailto:sagnikpal@umass.edu",
-          "../assets/resume.pdf"
-        ]}
-      />
-      <Row style={{ position: 'absolute', bottom: '1em', color: '#33ffff', fontFamily: "'Maven Pro', sans-serif", transform: 'translateX(-0.9em)' }}>
-        <Col style={{ opacity: 0.7 }}>About</Col>
-        <Col><FaAnglesDown/></Col>
-        <Col style={{ opacity: 0.7 }}>Me</Col>
-      </Row>
-    </Container>
-    <Container>
-      Hi How are you
+    <Container fluid style={intro.container0}>
+      <Container fluid style={intro.container1}>
+        <Row style={intro.greeting}>
+          Hey there! This is...
+        </Row>
+        <Row style={intro.titleContainer}>
+          <p style={intro.title}>Sagnik Pal</p>
+          {/* <p style={intro.titleShadow}>Sagnik Pal</p> */}
+        </Row>
+        <Row style={intro.headline}>
+          <span style={{ transform: 'translateX(-38%)', color: 'white', opacity: 0.2}}>type myself = <br /></span>
+          <span style={{ fontSize: '1.5em', transform: 'translateX(2%)' }}>
+            <span style={{ color: 'white', opacity: 0.2 }}>'</span>
+            <span style={{ color: '#dd99ff' }}>Developer</span>
+            <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
+            <span style={{ color: '#dd99ff' }}>Engineer</span>
+            <span style={{ color: 'white', opacity: 0.2 }}>' | '</span>
+            <span style={{ color: '#dd99ff' }}>Problem Solver</span>
+            <span style={{ color: 'white', opacity: 0.2 }}>'</span>
+          </span>
+        </Row>
+        <Row style={intro.linkBar}><LinkBar 
+          profLinks={["LinkedIn", "GitHub", "Email", "Resume"]} 
+          profLinksURL={[
+            "https://www.linkedin.com/in/sagnikpal2004",
+            "https://www.github.com/sagnikpal2004",
+            "mailto:sagnikpal@umass.edu",
+            "../assets/resume.pdf"
+          ]}
+        /></Row>
+      </Container>
+      {/* <NavigationBar 
+        title = ""
+        tabState = {{ currentTab: "home", setCurrentTab: () => {} }}
+      /> */}
     </Container>
   </>
 }

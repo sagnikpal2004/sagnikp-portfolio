@@ -3,37 +3,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavigationBar from './components/NavigationBar';
 import Loader from './components/Loader';
+import { menus } from './utils/consts';
+import { Container } from 'react-bootstrap';
 
 function App() {
-  const menus = ["home", "projects", "experience", "contact", "loader"];
   const [currentTab, setCurrentTab] = useState(menus[0]);
 
-  const renderSwitch = (param: string) => {
-    switch(param) {
-      case "home":
-        return React.lazy(() => import('./pages/Home'));
-      case "projects":
-        return React.lazy(() => import('./pages/Projects'));
-      case "experience":
-        return React.lazy(() => import('./pages/Experience'));
-      case "contact":
-        return React.lazy(() => import('./pages/Contact'));
-      case "loader":
-        return React.lazy(() => import('./components/Loader'));
-      default:
-        return React.lazy(() => import('./pages/NotFound'));
-      }
-  }
+  const Home = React.lazy(() => import('./pages/Home'));
+  const About = React.lazy(() => import('./pages/About'));
+  const Projects = React.lazy(() => import('./pages/Projects'));
+  const Experience = React.lazy(() => import('./pages/Experience'));
+  const Contact = React.lazy(() => import('./pages/Contact'));
+  const NotFound = React.lazy(() => import('./pages/NotFound'));
 
-  const PageComponent = renderSwitch(currentTab);
-  return <> 
-    <NavigationBar 
-      title="< sagni.kp />" 
-      menus={menus}
-      tabState={{ currentTab, setCurrentTab }}
-    />
-    <Suspense fallback={Loader()}><PageComponent/></Suspense>
-  </>
+  return <div style={{background: 'rgba(5, 10, 15, 1)'}}>
+    <Suspense fallback={<Loader />}><Home/></Suspense>
+    <NavigationBar title="" tabState={{currentTab, setCurrentTab}}/>
+    <Suspense fallback={<Loader />}><About/></Suspense>
+    <Suspense fallback={<Loader />}><Projects/></Suspense>
+    <Suspense fallback={<Loader />}><Experience/></Suspense>
+    <Suspense fallback={<Loader />}><Contact/></Suspense>
+  </div>
 }
 
 export default App;

@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { 
   HomeBackground 
-} from "../assets";
+} from "../utils/assets";
 
 const styles: Record<string, React.CSSProperties> = {
   container: {

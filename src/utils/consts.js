@@ -1,0 +1,1 @@
+export const menus = ["home", "about", "projects", "experience", "contact", "loader"]

@@ -1,6 +1,6 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
-import { HomeBackground } from "../assets";
+import { HomeBackground } from "../utils/assets";
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
