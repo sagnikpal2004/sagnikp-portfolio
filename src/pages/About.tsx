@@ -15,7 +15,8 @@ const styles: Record<string, React.CSSProperties> = {
     // alignItems: 'center',
     justifyContent: 'center',
     paddingTop: '10px',
-    
+    paddingRight: '10vw',
+    paddingLeft: '10vw',
   },
   title: {
     fontFamily: "'Maven Pro', sans-serif",
@@ -43,11 +44,16 @@ const styles: Record<string, React.CSSProperties> = {
 }
 
 function About() {
-  return <Container fluid style={styles.container}>
+  return <Container fluid style={styles.container} id="about-section">
     <Col /*fluid style={styles.photoCol}*/>{/*<FaCircleInfo style={{color: 'grey'}}/>*/}</Col>
     <Col style={styles.textCol}>
       <p style={styles.title}>About <b>Me</b></p>
-      Just a simple guy, who is awe-struck by how 
+      Just a simple guy, who is awe-struck by how complex systems emerge from simple rules — whether that’s in nature, in code, or in quantum mechanics.
+      <br/><br/>
+      Over the years, this curiosity has pulled me deeper into open-source development, systems programming, and quantum computing research — 
+fields where I not only build things, but also try to understand the *why*
+      <br/><br/>
+      I'm currently an undergraduate student at UMass Amherst, where I balance research, teaching, leadership, and tinkering with whatever excites me next.
     </Col>
   </Container>
 }

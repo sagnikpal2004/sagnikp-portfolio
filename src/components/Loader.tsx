@@ -4,7 +4,7 @@ import { HomeBackground } from "../utils/assets";
 
 const styles: Record<string, React.CSSProperties> = {
   container: {
-    background: `url(${HomeBackground})`,
+    // background: `url(${HomeBackground})`,
     minHeight: '100vh',
     maxHeight: '100vh',
     backgroundSize: 'cover',

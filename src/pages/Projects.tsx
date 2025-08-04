@@ -52,7 +52,7 @@ const styles: Record<string, React.CSSProperties> = {
 }
 
 function Projects() {
-  return <Container fluid style={styles.container}>
+  return <Container fluid style={styles.container} id="projects-section">
     <div style={styles.bgBlur} />
     <p style={styles.title}>Projects</p>
 

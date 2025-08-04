@@ -2,6 +2,8 @@ import React, { useState, Suspense } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavigationBar from './components/NavigationBar';
+import DotNavigation from './components/DotNavigation';
+import FixedLinkBar from './components/FixedLinkBar';
 import Loader from './components/Loader';
 import { menus } from './utils/consts';
 import { Container } from 'react-bootstrap';
@@ -17,8 +19,19 @@ function App() {
   const NotFound = React.lazy(() => import('./pages/NotFound'));
 
   return <div style={{background: 'rgba(5, 10, 15, 1)'}}>
-    <Suspense fallback={<Loader />}><Home/></Suspense>
-    <NavigationBar title="" tabState={{currentTab, setCurrentTab}}/>
+    <DotNavigation tabState={{currentTab, setCurrentTab}} />
+    <FixedLinkBar />
+    <div id="home">
+      <Suspense fallback={<Loader />}>
+        <Home tabState={{currentTab, setCurrentTab}} />
+      </Suspense>
+    </div>
+    <NavigationBar 
+      title="sagni.jp" 
+      tabState={{ currentTab, setCurrentTab }} 
+      sticky={true}
+      scrollMode={true}
+    />
     <Suspense fallback={<Loader />}><About/></Suspense>
     <Suspense fallback={<Loader />}><Experience/></Suspense>
     <Suspense fallback={<Loader />}><Projects/></Suspense>
